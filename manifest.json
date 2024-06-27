@@ -1,6 +1,6 @@
 {
-    "name": "weekend_countdown_webapp",
-    "short_name": "weekend_countdown_webapp",
+    "name": "weekend_countdown",
+    "short_name": "weekend_countdown",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
