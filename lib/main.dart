@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 
 void main() {
@@ -35,6 +35,7 @@ class CountdownPage extends StatefulWidget {
   const CountdownPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _CountdownPageState createState() => _CountdownPageState();
 }
 
@@ -74,18 +75,10 @@ class _CountdownPageState extends State<CountdownPage> {
   }
 
   void _updateBrowserTabTitle() {
-    final title = ''
-        '${countdownDuration.inDays.toString().padLeft(2, '0')}d '
+    final title = '${countdownDuration.inDays.toString().padLeft(2, '0')}d '
         '${(countdownDuration.inHours % 24).toString().padLeft(2, '0')}h '
         '${(countdownDuration.inMinutes % 60).toString().padLeft(2, '0')}m '
         '${(countdownDuration.inSeconds % 60).toString().padLeft(2, '0')}s';
-    if (kIsWeb) {
-      setBrowserTabTitle(title);
-    }
-  }
-
-  void setBrowserTabTitle(String title) {
-    // ignore: undefined_prefixed_name
     js.context.callMethod('eval', ['document.title = "$title";']);
   }
 
